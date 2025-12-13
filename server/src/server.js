@@ -11,6 +11,12 @@ app.use(clerkMiddleware());
 
 app.use("/api/inngest", serve({ client: inngest, functions }));
 
+app.get("/", (req, res) => {
+  res.json({
+    status: "ok",
+  });
+});
+
 app.listen(ENV.PORT, () => {
   connectDb();
   console.log("Listening on PORT", ENV.PORT);
