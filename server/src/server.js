@@ -17,11 +17,6 @@ app.get("/", (req, res) => {
   });
 });
 
-app.listen(ENV.PORT, () => {
-  connectDb();
-  console.log("Listening on PORT", ENV.PORT);
-});
-
 const startServer = async () => {
   try {
     await connectDb();
