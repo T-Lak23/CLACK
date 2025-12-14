@@ -4,10 +4,20 @@ import { connectDb } from "./config/db.js";
 import { clerkMiddleware } from "@clerk/express";
 import { serve } from "inngest/express";
 import { inngest, functions } from "../src/config/inngest.js";
+import cors from "cors";
 import chatRoutes from "./route/chat.route.js";
 
 const app = express();
 app.use(express.json());
+app.use(
+  cors({
+    origin:
+      ENV.NODE_ENV !== "production"
+        ? "http://localhost:5173"
+        : "http://localhost:5173",
+    credentials: true,
+  })
+);
 app.use(clerkMiddleware());
 
 app.use("/api/inngest", serve({ client: inngest, functions }));

@@ -31,3 +31,12 @@ export const generateStreamToken = async (userId) => {
     return null;
   }
 };
+
+export const addUserToPublicChannels = async (newUserId) => {
+  const publicChannels = await streamClient.queryChannels({
+    discoverable: true,
+  });
+  for (const channel of publicChannels) {
+    await channel.addMembers(newUserId);
+  }
+};
