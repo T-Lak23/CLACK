@@ -37,6 +37,6 @@ export const addUserToPublicChannels = async (newUserId) => {
     discoverable: true,
   });
   for (const channel of publicChannels) {
-    await channel.addMembers(newUserId);
+    await channel.addMembers([newUserId]);
   }
 };

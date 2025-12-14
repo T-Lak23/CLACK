@@ -67,7 +67,7 @@ const CreateChannelModal = ({ isOpen, onClose }) => {
 
   const handleMemberToggle = (id) => {
     if (selectedMembers.includes(id)) {
-      setSelectedMembers(selectedMembers.filter((uid) => uid === id));
+      setSelectedMembers(selectedMembers.filter((uid) => uid !== id));
     } else {
       setSelectedMembers([...selectedMembers, id]);
     }
