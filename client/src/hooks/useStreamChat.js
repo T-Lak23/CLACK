@@ -3,17 +3,17 @@ import { useEffect, useState } from "react";
 import { getStreamToken } from "../lib/api";
 import { StreamChat } from "stream-chat";
 
-const STREAM_API_KEY = import.meta.env.STREAM_API_KEY;
+const STREAM_API_KEY = import.meta.env.VITE_STREAM_API_KEY;
 
-export const useStreamChat = async () => {
+export const useStreamChat = () => {
   const { user } = useUser();
-  const { chatClient, setChatClient } = useState(null);
+  const [chatClient, setChatClient] = useState(null);
   const [tokenData, setTokenData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!user.id) return;
+    if (!user?.id) return;
     const fetchToken = async () => {
       setIsLoading(true);
       setError(null);
@@ -55,12 +55,12 @@ export const useStreamChat = async () => {
       } catch (error) {
         console.log("Error connecting to stream", error);
       }
-      connect();
+    };
+    connect();
 
-      return () => {
-        cancelled = true;
-        client.disconnectUser();
-      };
+    return () => {
+      cancelled = true;
+      client.disconnectUser();
     };
   }, [tokenData, user?.id]);
 

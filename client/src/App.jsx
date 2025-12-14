@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router";
 import HomePage from "./Pages/HomePage";
 import AuthPage from "./Pages/AuthPage";
 import CallPage from "./Pages/CallPage";
+import "./styles/stream-chat-theme.css";
 
 const App = () => {
   const { isSignedIn, isLoaded } = useAuth();
