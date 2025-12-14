@@ -11,8 +11,15 @@
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.58.1",
+    "@tailwindcss/vite": "^4.1.18",
+    "axios": "^1.13.2",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-hot-toast": "^2.6.0",
+    "react-router": "^7.10.1",
+    "stream-chat": "^9.27.1",
+    "stream-chat-react": "^13.13.0",
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
